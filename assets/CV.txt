@@ -1,0 +1,14 @@
+0	Mixed
+1	Demographics
+2	Housing and local environment (Housing and environment)
+3	Physical health
+4	Mental health and mental processes
+5	Health care
+6	Health behaviour (Health and lifestyle)
+7	Family and social networks
+8	Education
+9	Employment and income (Employment and pensions)
+10	Expectations, attitudes and beliefs (Attitudes and beliefs)
+11	Child development
+12	Life events
+13	Omics
