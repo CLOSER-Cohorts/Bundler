@@ -8,8 +8,8 @@ import shutil
 from xlrd import open_workbook
 from xlwt import Workbook
 from xlutils import copy as xl_copy
+import xlsxwriter as xl
 import csv
-import openpyxl
 
 
 class Application:
@@ -164,6 +164,53 @@ class Application:
                 ws.write(i, 0, row[1])
                 ws.write(i, 1, row[3])
             wb.save(self.path() + 'resources\mapping_new.xls')
+
+    def embed_qlist_into_mapping(self):
+        with open(self.path() + 'resources\qlist.txt')as t:
+            qlistcsv = csv.reader(t, delimiter='|')
+            wb = xl.Workbook(self.path() + 'resources\mapping_new.xlsx')
+            bold = wb.add_format({'bold': True})
+            ws_mtxt = wb.add_worksheet('mapping.txt')
+            ws_mtxt.set_tab_color('green')
+            ws_mtxt.write(0,0,'=IF(AND(ISBLANK(mapping!D2),ISBLANK(mapping!E2)),mapping!C2,mapping!C2&"$"&IF(ISBLANK(mapping!D2),"0",mapping!D2)&";"&IF(ISBLANK(mapping!E2),"0",mapping!E2))')
+            ws_mtxt.write(0,1,'=mapping!A2')
+            ws_dvtxt = wb.add_worksheet('dv.txt')
+            ws_dvtxt.set_tab_color('green')
+            ws_dvtxt.write(0,0,"='DV mapping'!A2")
+            ws_dvtxt.write(0,1,'=IF(ISBLANK(\'DV mapping\'!C2),IF(AND(OR(ISBLANK(\'DV mapping\'!F2),ISNA(\'DV mapping\'!F2)),OR(ISBLANK(\'DV mapping\'!G2),ISNA(\'DV mapping\'!G2))),IF(ISNA(\'DV mapping\'!E2),0,\'DV mapping\'!E2),IF(AND(\'DV mapping\'!F2<1,\'DV mapping\'!G2<1),\'DV mapping\'!E2,\'DV mapping\'!E2&"$"&\'DV mapping\'!F2&";"&\'DV mapping\'!G2)),\'DV mapping\'!C2)')
+            ws_qlist = wb.add_worksheet('qlist')
+            ws_qlist.set_tab_color('blue')
+            ws_qlist.write(0,0,'ID',bold)
+            ws_qlist.write(0,1,'Question Literal',bold)
+
+            for i, row in enumerate(qlistcsv):
+                ws_qlist.write(i+1, 0, row[1])
+                ws_qlist.write(i+1, 1, row[3])
+
+            ws_var = wb.add_worksheet('variables')
+            ws_var.set_tab_color('blue')
+            ws_var.write(0,0,'Variable',bold)
+            ws_var.write(0,1,'Label',bold)
+            ws_map = wb.add_worksheet('mapping')
+            ws_map.set_tab_color('red')
+            ws_map.write(0,0,'Variable',bold)
+            ws_map.write(0,1,'Label',bold)
+            ws_map.write(0,2,'ID',bold)
+            ws_map.write(0,3,'X',bold)
+            ws_map.write(0,4,'Y',bold)
+            ws_map.write(0,5,'Question Literal',bold)
+            ws_dv = wb.add_worksheet('DV mapping')
+            ws_dv.set_tab_color('red')
+            ws_dv.write(0,0,'Derived Variable',bold)
+            ws_dv.write(0,1,'Label',bold)
+            ws_dv.write(0,2,'Variable',bold)
+            ws_dv.write(0,3,'Label',bold)
+            ws_dv.write(0,4,'Question',bold)
+            ws_dv.write(0,5,'X',bold)
+            ws_dv.write(0,6,'Y',bold)
+            ws_dv.write(0,7,'Literal',bold)
+
+        wb.close()
 
 
     #def setupmappingxlsx(self):

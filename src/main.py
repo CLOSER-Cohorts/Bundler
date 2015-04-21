@@ -37,4 +37,5 @@ for port in args.portnumber:
 
 
 #app = Maplink()
-#app.setupmappingxlsx()
+    #app.setupmappingxlsx()
+    app.embed_qlist_into_mapping()
