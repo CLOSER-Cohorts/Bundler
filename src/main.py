@@ -19,22 +19,5 @@ arg_parser.add_argument(
     nargs='*'
 )
 args = arg_parser.parse_args()
-for port in args.portnumber:
-    app = Application(port)
-
-    app.setupFolders()
-    app.configfiles()
-    app.copymanual()
-    app.writeddixml()
-    app.writeindexhtm()
-    app.copyindexfiles()
-    #app.setupResources()
-    app.writelistfiles()
-    app.copyfiles()
-
-
-
-
-
-#app = Maplink()
-#app.setupmappingxlsx()
+app = Application(args.portnumber)
+app.run()
