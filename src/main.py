@@ -2,6 +2,7 @@ __author__ = 'umidqssh'
 from application import Application
 #from application import Maplink
 
+import os
 import argparse
 #parser = argparse.ArgumentParser()
 #parser.add_argument('-A', action='append_const',help='4-digit port number')
@@ -19,5 +20,6 @@ arg_parser.add_argument(
     nargs='*'
 )
 args = arg_parser.parse_args()
-app = Application(args.portnumber)
+root = os.path.dirname(__file__)
+app = Application(args.portnumber, root)
 app.run()
