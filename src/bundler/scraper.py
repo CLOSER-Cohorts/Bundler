@@ -17,7 +17,7 @@ class Scraper:
 
 #scrapping CADDIES url + port
     def url(self):
-        return "http://192.168.52.61:" + str(self.port)
+        return "http://192.168.52.39:" + str(self.port)
 
 #scrapping wrapper sequence
     def scrapePrefix(self):
