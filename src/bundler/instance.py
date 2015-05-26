@@ -125,28 +125,28 @@ class Instance:
     def copymanual(self):
         self.path()
         if not os.path.exists(self.path() + 'Metadata Delivery Bundle.pdf'):
-            shutil.copy('C:\CLOSER\Python\\assets\Metadata Delivery Bundle.pdf', self.path())
+            shutil.copy(self.assets + 'Metadata Delivery Bundle.pdf', self.path())
         else:
              print 'manual already copied'
 
     def copyfiles(self):
         self.path()
         if not os.path.exists(self.path() + 'CV.txt'):
-            shutil.copy('C:\CLOSER\Python\\assets\CV.txt', self.path() + 'resources')
+            shutil.copy(self.assets + 'CV.txt', self.path() + 'resources')
         else:
             print 'CV.txt already copied'
         if not os.path.exists(self.path() + 'linking.xlsx'):
-            shutil.copy('C:\CLOSER\Python\\assets\linking.xlsx', self.path() + 'resources')
+            shutil.copy(self.assets + 'linking.xlsx', self.path() + 'resources')
         else:
             print 'linking.xlsx already copied'
         if not os.path.exists(self.path() + 'mapping.xlsx'):
-            shutil.copy('C:\CLOSER\Python\\assets\mapping.xlsx', self.path() + 'resources')
+            shutil.copy(self.assets + 'mapping.xlsx', self.path() + 'resources')
         else:
             print 'mapping.xlsx already copied'
 
     def copyindexfiles(self):
         if not os.path.exists(self.path() + 'index_files'):
-            shutil.copytree('C:\CLOSER\Python\\assets\index_files', self.path() + 'index_files')
+            shutil.copytree(self.assets + 'index_files', self.path() + 'index_files')
         else:
             print 'index_files folder already exists'
 
