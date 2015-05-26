@@ -18,7 +18,7 @@ class Instance:
         self.assets = os.path.join(root, "..\\assets\\")
 
     def url(self):
-        return "http://192.168.52.61:" + str(self.port)
+        return "http://192.168.52.39:" + str(self.port)
 
     def scrapePrefix(self):
         if self.prefix == None:

@@ -94,7 +94,7 @@ jQuery(document).ready(function() {
 					GridRef = pieces[1];
 				}
 
-				if (Qc == jQuery(this).text()) {
+				if (Qc == jQuery(this).attr('id')) {
 					if (GridRef == null) {
 						vars[vars.length] = pairs[i].Var;
 					} else {
@@ -118,7 +118,7 @@ jQuery(document).ready(function() {
 					GridRef = pieces[1];
 				}
 
-				if (Qc == jQuery(this).text()) {
+				if (Qc == jQuery(this).attr('id')) {
 					if (GridRef == null) {
 						dv_q[dv_q.length] = DV2Q[i].DV;
 					} else {
@@ -144,7 +144,7 @@ jQuery(document).ready(function() {
 						GridRef = pieces[1];
 					}
 
-					if (Qc == jQuery(this).text()) {
+					if (Qc == jQuery(this).attr('id')) {
 						if (GridRef == null) {
 							dv_v[dv_v.length] = DV2V[i].DV;
 						} else {
@@ -214,7 +214,7 @@ jQuery(document).ready(function() {
 				linked = true;
 			}
 			if (!linked) {
-				lonelyQID[lonelyQID .length] = jQuery(this).text();
+				lonelyQID[lonelyQID .length] = jQuery(this).attr('id')
 			}
 		});
 		jQuery('span.Variables').css({

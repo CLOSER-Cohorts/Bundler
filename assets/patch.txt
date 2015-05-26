@@ -1,1 +1,2 @@
+<script src="index_files/jquery-1.js" type="text/javascript"></script>
 <script src="index_files/mapping.js" type="text/javascript"></script>

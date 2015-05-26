@@ -1,4 +1,4 @@
-0	Mixed
+0	Unclassifiable
 1	Demographics
 2	Housing and local environment (Housing and environment)
 3	Physical health
